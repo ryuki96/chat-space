@@ -41,8 +41,8 @@
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
+    .done(function(message__detail__date){
+      var html = buildHTML(message__detail__date);
       $('.messages').append(html);
       $('#message_content').val(''); 
       scrollBottom();
