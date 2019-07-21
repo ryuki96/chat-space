@@ -14,9 +14,7 @@ $(function() {
     var html = `<div class='chat-group-user clearfix'>${ user }</div>`
     search_list.append(html);
   }
-
   var member_list = $("#chat-group-users");
-
   function addUser(userId,userName) {
   var html = `<div id='chat-group-users'>
                 <div class='chat-group-user clearfix js-chat-member' id='${userId}'>
@@ -50,7 +48,7 @@ $(function() {
       alert('検索に失敗しました');
     })
   });
-    $(document).on("click", ".user-search-add", function () {
+  $(document).on("click", ".user-search-add", function () {
     $('#chat-group-users').val();
       var userId = $(this).data('user-id');
       var userName = $(this).data('user-name');
@@ -60,5 +58,5 @@ $(function() {
 
     $(document).on("click", ".user-search-remove", function () {
       $(this).parent().remove();
-    });
   });
+});
