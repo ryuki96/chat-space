@@ -36,8 +36,9 @@
   .messages {
     background-color: #FAFAFA;
     box-sizing: border-box;
-    padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    overflow: scroll;
+    padding: 45px 40px;
+    height: calc(100vh - 190px);
     .message {
       .upper-message {
         display: flex;
