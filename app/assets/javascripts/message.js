@@ -5,7 +5,6 @@
 
   
   function buildHTML(message) {
-    console.log(message)
     var content = message.content ? `${ message.content }` : "";
     var img = message.image.url ? `<img src= ${ message.image }>` : "";
     var html = `<div class="message" data-id="${message.id}">
@@ -42,8 +41,7 @@
       contentType: false
     })
     .done(function(message__detail__date){
-      console.log(message__detail__date)
-      debugger;
+
       var html = buildHTML(message__detail__date);
       $('.messages').append(html);
       $('#message_content').val(''); 
@@ -70,7 +68,6 @@
     })
     .done(function(messages) {
       messages.forEach(function(message) {
-        console.log(message)
         var html = buildHTML(message)
         $('.messages').append(html)
         scrollBottom();
