@@ -55,7 +55,6 @@
   })
   var reloadMessages = function() {  
      var last_message_id = $('.message').last().data("id");
-     console.log(last_message_id)
     $.ajax({
       //ルーティングで設定した通りのURLを指定
       //url: "groups/" + group_id + "/api/messages",
@@ -67,7 +66,6 @@
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      console.log(messages)
       messages.forEach(function(message) {
         var html = buildHTML(message)
         $('.messages').append(html)
