@@ -41,7 +41,6 @@
       contentType: false
     })
     .done(function(message__detail__date){
-
       var html = buildHTML(message__detail__date);
       $('.messages').append(html);
       $('#message_content').val(''); 
@@ -56,10 +55,11 @@
   })
   var reloadMessages = function() {  
      var last_message_id = $('.message').last().data("id");
+     console.log(last_message_id)
     $.ajax({
       //ルーティングで設定した通りのURLを指定
       //url: "groups/" + group_id + "/api/messages",
-      url: "api/messages",
+      url: 'api/messages',
       //ルーティングで設定した通りhttpメソッドをgetに指定
       type: 'get',
       dataType: 'json',
@@ -67,9 +67,11 @@
       data: {id: last_message_id}
     })
     .done(function(messages) {
+      console.log(messages)
       messages.forEach(function(message) {
         var html = buildHTML(message)
         $('.messages').append(html)
+        
         scrollBottom();
       })
     })
