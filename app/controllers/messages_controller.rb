@@ -4,15 +4,11 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
-    @newmessages = []
-    respond_to do |format|
-      format.json {
-        if params[:leastMessage][:id].to_i != @group.messages.last.id
-          @newmessages = @group.messages.where("id > #{params[:leastMessage][:id]}")
-        end
-      }
-      format.html
-    end
+    #@newmessages = @group.messages.where("id > ?", params[:last_id]) #params[:id]というのは普通のidなのか区別がつかないので別の名前に変える　例：params[:last_id]
+    #respond_to do |format|
+      #format.json
+      #format.html
+    #end
   end
 
   def create
