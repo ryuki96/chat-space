@@ -7,7 +7,6 @@
   function buildHTML(message) {
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-    console.log(img)
     var html = `<div class="message" data-id="${message.id}">
                   <div class="message__detail">
                     <p class="message__detail__current-user-name">
