@@ -8,15 +8,15 @@
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
     var html = `<div class="message" data-id="${message.id}">
-                  <div class="message__detail">
-                    <p class="message__detail__current-user-name">
+                  <div class="upper-message">
+                    <p class="upper-message__user-name">
                       ${message.user_name}
                     </p>
-                    <p class="message__detail__date">
+                    <p class="upper-message__date">
                       ${message.date}
                     </p>
                   </div>
-                  <p class="message_body">
+                  <p class="lower-message">
                     <div>
                     ${content}
                     </div>
