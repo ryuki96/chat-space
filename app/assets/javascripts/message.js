@@ -53,12 +53,14 @@
       $('.form__submit').prop('disabled', false);  
     })
   })
-  var reloadMessages = function() {  
+  var interval = setInterval (function() { 
+    if (location.href.match(/\/groups\/\d+\/messages/)){ 
      var last_message_id = $('.message').last().data("id");
+     var href = 'api/messages'
     $.ajax({
       //ルーティングで設定した通りのURLを指定
       //url: "groups/" + group_id + "/api/messages",
-      url: 'api/messages',
+      url: href,
       //ルーティングで設定した通りhttpメソッドをgetに指定
       type: 'get',
       dataType: 'json',
@@ -76,6 +78,8 @@
     .fail(function() {
       alert('自動更新に失敗しました');
     });
-  };
-  setInterval(reloadMessages, 5000);
-});
+  } else {
+    clearInterval(interval);
+   }
+  } , 5000 );
+})
